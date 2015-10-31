@@ -26,3 +26,10 @@
 *.exe
 *.out
 *.app
+
+# Input files
+*.fa
+*.fasta
+
+# Temp files
+*~

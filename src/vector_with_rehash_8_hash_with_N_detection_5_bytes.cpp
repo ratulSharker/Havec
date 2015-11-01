@@ -1090,10 +1090,11 @@ void main5Byte(int argc, char** argv) {
  * warning
  * WARNING --- unblock this code of section before releasing
  */
+ /*
 	if(size < (pow(2,2 * kSize - 33)+ 536870912)){
 		size = pow(2,2 * kSize - 33)+ 536870912;
 	}
-
+*/
 
 
 /* for output to the file

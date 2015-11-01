@@ -1173,6 +1173,6 @@ void main5Byte(int argc, char** argv) {
 	
 	delete blockArray;
 	
-//	fclose(stdout);
+	fclose(stdout);
 	return ;
 }

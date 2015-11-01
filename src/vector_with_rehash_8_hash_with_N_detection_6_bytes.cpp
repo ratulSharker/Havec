@@ -1195,11 +1195,13 @@ void main6Byte(int argc, char** argv) {
  * warning
  * WARNING --- unblock this code of section before releasing
  */
+ /*
 	if(size < (pow(2,2 * kSize - 33)+ 536870912)){
 		size = pow(2,2 * kSize - 33)+ 536870912;
 	}
+*/
 
-/* helps to keep output in a file
+// helps to keep output in a file
 
 	string fileName = "5_";
 	fileName.append(argv[1]+3);
@@ -1224,7 +1226,7 @@ void main6Byte(int argc, char** argv) {
 	
 	//enable this line will give you access the whole output in the cmd
 	freopen(fileName.c_str(),"w",stdout);
-*/
+
 	
 	currentDateTime();
 	

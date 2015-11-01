@@ -1097,7 +1097,7 @@ void main5Byte(int argc, char** argv) {
 */
 
 
-/* for output to the file
+// for output to the file
 
 	string fileName = "5_";
 	fileName.append(argv[1]+3);
@@ -1121,7 +1121,7 @@ void main5Byte(int argc, char** argv) {
 	fileName.append(".txt");
 	
 	freopen(fileName.c_str(),"w",stdout);
-*/
+
 	
 	currentDateTime();
 	

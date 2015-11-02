@@ -1201,27 +1201,31 @@ void main6Byte(int argc, char** argv) {
 	}
 */
 
-// helps to keep output in a file
 
-	string fileName = "5_";
-	fileName.append(argv[1]+3);
-	size_t pos=fileName.find_first_of('.');
-	if(pos!=string::npos)
-		fileName=fileName.substr(0,pos);
-	fileName.append("_");
+//building the filename
+	string fileName = "6_";
+	fileName.append(argv[1]);
+
+	fileName.append("_k_");
 	fileName.append(argv[2]);
-	fileName.append("_");
+	fileName.append("_h_");
 	fileName.append(argv[3]);
-	if(argc>4)
+
+	if(argc >= 6)
 	{
-		fileName.append("_");
-		fileName.append(argv[4]);
-		if(argc>5)
+		fileName.append("_s_");
+		fileName.append(argv[6]);
+
+		if(argc >= 7)
 		{
-			fileName.append("_my_");
-			fileName.append(argv[5]+2);
+			fileName.append("_mf_");
+			fileName.append(argv[7]);
 		}
 	}
+	//cant contain the dot, thats why replacing it with the 
+	// - char
+	replace(fileName.begin(), fileName.end(), '.', '-');
+
 	fileName.append(".txt");
 	
 	//enable this line will give you access the whole output in the cmd

@@ -1161,9 +1161,9 @@ void main5Byte(int argc, char** argv) {
 	
 	double vm, rss;
 	process_mem_usage(vm, rss);
-	cout<<"HashTable memory allocation (GB):: "<<(size * 5 )/(1024 * 1024 * 1024)<<endl;
-	cout<<"Vector memory allocation    (GB):: "<<(((vm)/1024)/1024) - ((size * 5 )/(1024 * 1024 * 1024)) <<endl;
-	cout << "Total memory used (GB):  " << ((vm)/1024)/1024 <<endl;	
+	cout<<"HashTable memory allocation (GB):: "<<((double)size * 5.0 )/(1024.0 * 1024.0 * 1024.0)<<endl;
+	cout<<"Vector memory allocation    (GB):: "<<(((vm)/1024.0)/1024.0) - (((double)size * 5 )/(1024.0 * 1024.0 * 1024.0)) <<endl;
+	cout << "Total memory used (GB):  " << ((vm)/1024.0)/1024.0 <<endl;	
 	
 	/*//newly changed
 	* before deleting the block array check for the print state

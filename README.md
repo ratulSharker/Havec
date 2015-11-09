@@ -1,6 +1,6 @@
 # Havec
 
-This is a implementation of <b>Back to Results
+This is a implementation of <b>
 Efficient de Bruijn graph construction for genome assembly using a hash table and auxiliary vector data structures</b>. 
 
 ## Pre-requisite

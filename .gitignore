@@ -33,3 +33,8 @@
 
 # Temp files
 *~
+
+# Result_analyzer module
+*.html
+*.class
+*.txt

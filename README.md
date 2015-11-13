@@ -52,3 +52,19 @@ Some of the test run are given following
 ./Havec.out Human1_95G_CASAVA1.8a2_NCBI37_18Jan11_chr19.sorted.fasta 32 8 NC NP 222896820 1.4
 ./Havec.out Human1_95G_CASAVA1.8a2_NCBI37_18Jan11_chr21.sorted.fasta 32 8 NC NP 138568143 1.4
 ```
+
+## Using the Result Analyzer
+
+Running the <b>Havec</b> tool will output the result in a human readable text file (file with a txt extension). Created output filename will follow the input parameter. Each run of the tool single text formatted output. In each output file there will be verbose data, to sort-out the exact very necessary data a [result_analyzer](https://github.com/ratulSharker/Havec/tree/master/result_analyzer) tool is attached with the repository.
+
+To use the [result_analyzer](https://github.com/ratulSharker/Havec/tree/master/result_analyzer) tool first make a <b>all_results</b> empty directory inside the [result_analyzer](https://github.com/ratulSharker/Havec/tree/master/result_analyzer) directory. Then put all the resulted output text file into this directory & run the [parse.sh](https://github.com/ratulSharker/Havec/blob/master/result_analyzer/parse.sh) tool using the following command
+
+```shell
+sh parse.sh
+```
+
+This [parse.sh](https://github.com/ratulSharker/Havec/blob/master/result_analyzer/parse.sh) will create a html file named after the current system date & time. This html file will contain a table with all the data in the <b>all_results</b> directory.
+
+## A brief story of the Result Analyzer
+
+The result analyzer actually a java program, which parse out all the results inside a directory. It parses every single line inside the text file which is the output of the <b>Havec</b> executable. So the input to the java programme is a directory containing all the resulted text file. The input directory in our case is <b>all_results</b> directory. You can configure that on your wish, just need to edit the [parse.sh](https://github.com/ratulSharker/Havec/blob/master/result_analyzer/parse.sh) file. Open it in your favorite editor, search for <b>all_results</b> and rename it as your choice. Another thing to share that, we compile the java program (generate .class file) everytime we call the [parse.sh](https://github.com/ratulSharker/Havec/blob/master/result_analyzer/parse.sh) which is completely unnecessary, but we need that because that script is from our [result_analyzer's](https://github.com/ratulSharker/Havec/tree/master/result_analyzer) devlopment cycle. Each time we made a change in the parser program we need to compile to get a glance in the output. 

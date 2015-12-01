@@ -81,7 +81,7 @@ public class ResultParser {
                 endTime = new Date();
         boolean firstDateConsumed = false;
         boolean lastDateConsumed = false;
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd.hh:mm:ss");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd.HH:mm:ss");
         /**********************************************/
         
         //params ->filename kSize hSize
@@ -129,9 +129,11 @@ public class ResultParser {
                         //it is the first date
                         startTime = tempDate;
                         firstDateConsumed = true;
+                        //System.out.println("###START_TIME###"+line+"###");
                     }
                     else if(lastDateConsumed == false){
                         endTime = tempDate;
+                        //System.out.println("###END_TIME###"+line+"### ==> " + (endTime.getTime() - startTime.getTime())/1000);
                     }
                 }
                 else if(line.startsWith("stat from consume function ::")){
@@ -214,13 +216,14 @@ public class ResultParser {
         }
         finally{          
             
-            
+            /*
             if(startTime.getHours() == 11
                     && endTime.getHours() != 11){
                 startTime.setHours(0);
                 endTime.setHours(endTime.getHours()+1);
                 //System.out.println(startTime + " " + endTime );
             }
+            */
             
             //time thing
             long elapsedMili = endTime.getTime() - startTime.getTime();

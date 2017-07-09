@@ -1,3 +1,7 @@
+
+#ifndef VECTOR_WITH_REHASH_8_HASH_WITH_N_DETECTION_5_BYTES
+#define VECTOR_WITH_REHASH_8_HASH_WITH_N_DETECTION_5_BYTES
+
 ////////////////////////////////////////////////
 // NECESSARY STRUCTURES
 ///////////////////////////////////////////////
@@ -1180,3 +1184,5 @@ void main5Byte(int argc, char** argv) {
 	fclose(stdout);
 	return ;
 }
+
+#endif

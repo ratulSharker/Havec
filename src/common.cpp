@@ -1,22 +1,20 @@
 #include <iostream>
 #include <fstream>
-#include <list>
 #include <map>
-#include <string>
 #include <cstring>
 #include <algorithm>
-#include <cmath>
 #include <time.h>
 #include <vector>
 #include <unistd.h>
-#include <ios>
-#include <cstddef> 
 
 using namespace std;
 
 /**
  * forward declaration of the khmerInfo5Byte & khmerInfo6Byte //newly changes
 **/
+
+#ifndef COMMON_H
+#define COMMON_H
 
 
 ////////////////////////////////////////////////
@@ -121,7 +119,7 @@ unsigned long long get_a_prime_above_x(unsigned long long x)
 {
 
   // steps backward until n primes (other than 2) have been
-//   found that are smaller than x.
+  // found that are smaller than x.
 	  if(is_prime(x)){
 		return x;
 	  }
@@ -602,3 +600,4 @@ char* __revhash(unsigned long long hashed,unsigned short hashFunc, unsigned int 
 	//fclose(fp2);
 //}
 
+#endif

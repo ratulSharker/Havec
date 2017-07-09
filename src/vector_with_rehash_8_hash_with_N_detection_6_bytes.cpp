@@ -1,3 +1,5 @@
+#ifndef VECTOR_WITH_REHASH_8_HASH_WITH_N_DETECTION_6_BYTES
+#define VECTOR_WITH_REHASH_8_HASH_WITH_N_DETECTION_6_BYTES
 
 unsigned long long number_of_khmer_not_listed_in_memblock_count_variable = 0;
 unsigned long long number_of_khmer_not_listed_in_vector_count_variable = 0;
@@ -1307,3 +1309,5 @@ void main6Byte(int argc, char** argv) {
 	fclose(stdout);
 	return ;
 }
+
+#endif

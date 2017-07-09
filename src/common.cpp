@@ -281,7 +281,7 @@ unsigned long long fullHasher(std::string khmer,unsigned int whichHashFunc){
 unsigned long long partialHasher(unsigned long long hashVal, char lastNeucleotide, unsigned short int kSize,unsigned int whichHashFunc){
 	
 	//security checking -- can be stopped when releasing
-	if(whichHashFunc > LAST_HASH_FUNC || whichHashFunc < 0){
+	if(whichHashFunc > LAST_HASH_FUNC){ //|| whichHashFunc < 0){ // un-necessay checking is removed because whichHashFunc is unsigned which value would never be negative, caught by osx g++.
 		std::cout<<"invalid hash function requested :: "<<whichHashFunc<<std::endl;
 		std::cout<<"Exiting..."<<std::endl;
 		exit(0);

@@ -9,7 +9,7 @@ unsigned long long number_of_khmer_not_listed_in_vector_count_variable = 0;
 
 struct khmerInfo6Byte{
 	//space for only qutioned + neighbour
-	unsigned char data[5];//12 bit for qutioned + 4 bit for neighbour
+	unsigned char data[5];// data portion is explained below
 	unsigned char count = 0;
 	/*
 	 * data[4] (NNNN WWWQ) N for neighbour & W for which hash & Q for qutioned
@@ -1302,7 +1302,7 @@ void main6Byte(int argc, char** argv) {
 		print6ByteHashTableAndVectorStructure(blockArray , size, kSize,mapPointer6Byte);
 	}
 	
-	delete blockArray;
+	delete [] blockArray;
 	
 	fclose(stdout);
 	return ;

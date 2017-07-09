@@ -1175,7 +1175,7 @@ void main5Byte(int argc, char** argv) {
 		print5ByteHashTableAndVectorStructure(blockArray , size, kSize,mapPointer5Byte);
 	}
 	
-	delete blockArray;
+	delete [] blockArray;
 	
 	fclose(stdout);
 	return ;

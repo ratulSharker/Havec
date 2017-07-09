@@ -1,0 +1,4 @@
+language: cpp
+compiler: g++
+script: g++ -std=c++11 src/main.cpp -o Havec.out
+

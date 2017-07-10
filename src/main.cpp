@@ -30,6 +30,11 @@ int main(int argc,char **argv){
 		cutOff = false;
 	}
 
+	/*
+	 * create the output directory
+	 */
+	 createDirectory(OUTPUT_DIRECTORY_NAME);
+
 	//now call the 5 byte or the 6 byte functionalities :)
 	if(cutOff){
 		//call 6 byte code -- if valid values are given in the cutOffSection

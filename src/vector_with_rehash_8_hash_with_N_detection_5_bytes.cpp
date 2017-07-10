@@ -892,12 +892,22 @@ void print5ByteHashTableAndVectorStructure(void* blockArr,unsigned long long has
 {
 
 	printf("5 byte hashtable & vector info dumping began\n");
-
 	char neighbour_musk = 0xF0;
+
+	char hashtableFilename[512],
+		 vectorFilename[512];
+	memset(hashtableFilename, 0, sizeof(hashtableFilename));
+	memset(vectorFilename, 0, sizeof(vectorFilename));
+
+	strcat(hashtableFilename, OUTPUT_DIRECTORY_NAME);
+	strcat(vectorFilename, OUTPUT_DIRECTORY_NAME);
+
+	strcat(hashtableFilename, 	"hashtable_5_Byte.txt");
+	strcat(vectorFilename, 		"vector_structure_5_byte.txt");
 	
 	FILE *fp, *fp2;
-	fp		=fopen("hashtable_5_Byte.txt", "w");
-	fp2 	=fopen("vector_structure_5_byte.txt", "w"); 
+	fp		=fopen(hashtableFilename, "w");
+	fp2 	=fopen(vectorFilename, "w"); 
 	
 		/**
 		* dumping the HashTable
@@ -1125,7 +1135,10 @@ void main5Byte(int argc, char** argv) {
 	//cant contain the dot, thats why replacing it with the 
 	// - char
 	replace(fileName.begin(), fileName.end(), '.', '-');
+	replace(fileName.begin(), fileName.end(), '/', '~');
 
+	string outputDir = OUTPUT_DIRECTORY_NAME;
+	fileName = outputDir.append(fileName);
 	fileName.append(".txt");
 	
 	freopen(fileName.c_str(),"w",stdout);

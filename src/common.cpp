@@ -1,11 +1,15 @@
 #include <iostream>
 #include <fstream>
 #include <map>
+#include <cmath>
 #include <cstring>
 #include <algorithm>
 #include <time.h>
 #include <vector>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+
 
 using namespace std;
 
@@ -30,6 +34,7 @@ using namespace std;
 #define N_FOUND_IN_NEUCLEOTIDE 7	//newly added in purpose of detecting N in the read
 #define NEUCLEOTIDE_CHAIN_IS_OK 8	//newly added in purpose of detecting N in the read
 
+#define OUTPUT_DIRECTORY_NAME	"output/"
 
 //special -- defined value
 //#define LAST_HASH_FUNC 3
@@ -345,6 +350,21 @@ string _revhash(unsigned long long hashed,unsigned short hashFunc, unsigned int 
 		hashed = hashed >> 2;
 	}
 	return ans;
+}
+
+/********************************************/
+// create a directory with the name provided
+/********************************************/
+bool createDirectory(const char* directoryName)
+{
+	struct stat st = {0};
+
+	if(stat(directoryName, &st) == -1){
+    	return mkdir(directoryName, 0700);
+	}
+	else{
+		return false;
+	}
 }
 
 /*

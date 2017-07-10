@@ -27,9 +27,9 @@
 *.out
 *.app
 
-# Input files
-*.fa
-*.fasta
+# Input files are now part of test run
+#*.fa
+#*.fasta
 
 # Temp files
 *~

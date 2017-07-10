@@ -996,12 +996,23 @@ void reCheckTheKhmerExistence6Byte(struct khmerInfo6Byte * memBlock, unsigned lo
 void print6ByteHashTableAndVectorStructure(void* blockArr,unsigned long long hashSize, unsigned int kSize,vector<struct vector_trial_6_byte> *mapPointer6Byte)
 {
 	printf("6 byte hashtable & vector info dumping began\n");
-	
 	char neighbour_musk = 0xF0;
+
+	char hashtableFilename[512],
+		 vectorFilename[512];
+	
+	memset(hashtableFilename, 0, sizeof(hashtableFilename));
+	memset(vectorFilename, 0, sizeof(vectorFilename));
+
+	strcat(hashtableFilename, OUTPUT_DIRECTORY_NAME);
+	strcat(vectorFilename, OUTPUT_DIRECTORY_NAME);
+
+	strcat(hashtableFilename, 	"hashtable_6_Byte.txt");
+	strcat(vectorFilename, 		"vector_structure_6_byte.txt");
 	
 	FILE *fp, *fp2;
-	fp		=fopen("hashtable_6_Byte.txt", "w");
-	fp2 	=fopen("vector_structure_6_byte.txt", "w"); 
+	fp		=fopen(hashtableFilename, "w");
+	fp2 	=fopen(vectorFilename, "w"); 
 
 	    /**
 		* dumping the HashTable
@@ -1227,7 +1238,11 @@ void main6Byte(int argc, char** argv) {
 	//cant contain the dot, thats why replacing it with the 
 	// - char
 	replace(fileName.begin(), fileName.end(), '.', '-');
+	replace(fileName.begin(), fileName.end(), '/', '~');
 
+
+	string outputDir = OUTPUT_DIRECTORY_NAME;
+	fileName = outputDir.append(fileName);
 	fileName.append(".txt");
 	
 	//enable this line will give you access the whole output in the cmd

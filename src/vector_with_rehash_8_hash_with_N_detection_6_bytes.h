@@ -1,0 +1,6 @@
+#ifndef VECTOR_WITH_REHASH_8_HASH_WITH_N_DETECTION_6_BYTES
+#define VECTOR_WITH_REHASH_8_HASH_WITH_N_DETECTION_6_BYTES
+
+void main6Byte(int argc, char** argv);
+
+#endif

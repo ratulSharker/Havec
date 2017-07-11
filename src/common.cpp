@@ -1,65 +1,11 @@
-#include <iostream>
-#include <fstream>
-#include <map>
-#include <cmath>
-#include <cstring>
-#include <algorithm>
-#include <time.h>
-#include <vector>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
+#include "common.h"
 
-
-using namespace std;
-
-/**
- * forward declaration of the khmerInfo5Byte & khmerInfo6Byte //newly changes
-**/
-
-#ifndef COMMON_H
-#define COMMON_H
-
-
-////////////////////////////////////////////////
-// NECESSARY CONSTANTS
-///////////////////////////////////////////////
-#define LIST 0
-#define MEM_BLOCK 1
-#define MEM_BLOCK_FOUND 2
-#define ERROR 3
-#define FOUND 4
-#define NOT_FOUND 5
-#define LIST_FOUND 6
-#define N_FOUND_IN_NEUCLEOTIDE 7	//newly added in purpose of detecting N in the read
-#define NEUCLEOTIDE_CHAIN_IS_OK 8	//newly added in purpose of detecting N in the read
-
-#define OUTPUT_DIRECTORY_NAME	"output/"
-
-//special -- defined value
-//#define LAST_HASH_FUNC 3
+// actual variable declaration
 unsigned int LAST_HASH_FUNC;
 unsigned char two_bit_repr[24];
 unsigned int neucleotide_status;	//newly added in purpose of detecting N in the read
 
-
-#define rev_two_bit_repr(n,i) ( (i)==0 && (n)==0 ? 'A' : \
-							(i)==0 && (n)==1 ? 'T' : \
-							(i)==0 && (n)==2 ? 'G' : \
-							(i)==0 && (n)==3 ? 'C' : \
-							(i)==1 && (n)==0 ? 'C' : \
-							(i)==1 && (n)==1 ? 'A' : \
-							(i)==1 && (n)==2 ? 'T' : \
-							(i)==1 && (n)==3 ? 'G' : \
-							(i)==2 && (n)==0 ? 'G' : \
-							(i)==2 && (n)==1 ? 'C' : \
-							(i)==2 && (n)==2 ? 'A' : \
-							(i)==2 && (n)==3 ? 'T' : \
-							(i)==3 && (n)==0 ? 'T' : \
-							(i)==3 && (n)==1 ? 'G' : \
-							(i)==3 && (n)==2 ? 'C' : \
-							(i)==3 && (n)==3 ? 'A' : 'Z' )
-
+unsigned long long num_of_vector;
 
 /*
  * some common functionality :)
@@ -139,17 +85,6 @@ unsigned long long get_a_prime_above_x(unsigned long long x)
    }
    return x;
 }
-
-
-
-/*
-* some necessary structures & some of their quantity variables
- */
-unsigned long long num_of_vector;
-struct classcomp {
-  bool operator() (unsigned long long lhs, unsigned long long rhs)
-  {return lhs<rhs;}
-};
 
 
 
@@ -619,5 +554,3 @@ char* __revhash(unsigned long long hashed,unsigned short hashFunc, unsigned int 
 	//fclose(fp);
 	//fclose(fp2);
 //}
-
-#endif

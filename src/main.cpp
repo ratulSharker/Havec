@@ -1,14 +1,7 @@
-#include "common.cpp"
-#include "vector_with_rehash_8_hash_with_N_detection_5_bytes.cpp"
-#include "vector_with_rehash_8_hash_with_N_detection_6_bytes.cpp"
 
-
-
-
-
-
-
-
+#include "common.h"
+#include "vector_with_rehash_8_hash_with_N_detection_5_bytes.h"
+#include "vector_with_rehash_8_hash_with_N_detection_6_bytes.h"
 
 
 

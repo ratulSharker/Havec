@@ -18,6 +18,7 @@ before_install:
 #language: cpp
 #compiler: g++
 script: 
-  g++-4.9 -std=c++11 src/main.cpp -o Havec.out
-  sh run.sh
+  make
+  #g++-4.9 -std=c++11 src/main.cpp -o Havec.out
+  #sh run.sh
   

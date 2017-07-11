@@ -14,4 +14,5 @@ ci:
 
 .PHONY: clean
 clean:
-	rm -f src/*.o *.out 
+	rm -f src/*.o *.out
+	rm -rf output/

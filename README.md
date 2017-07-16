@@ -1,5 +1,5 @@
 # Havec
-<img src='https://travis-ci.org/ratulSharker/Havec.svg?branch=master'> <img src='https://img.shields.io/badge/g++-4.7+-orange.svg'>
+<a href="https://travis-ci.org/ratulSharker/Havec"><img src='https://travis-ci.org/ratulSharker/Havec.svg?branch=master'></a> <a href="https://gcc.gnu.org/gcc-4.7/"><img src='https://img.shields.io/badge/g++-4.7+-orange.svg'></a>
 
 
 This is a implementation of <b>
@@ -24,6 +24,10 @@ Sample input files are provided into the **input_files**. A simple test run is a
 ```shell
   sh test_run.sh
 ```
+
+A **dated html** file will be served upon the script ends, which will contain all the test set run results in tabular form. Open the file in your convenient browser.
+
+
 
 Some of the example are given following:
 

@@ -84,7 +84,7 @@ void currentDateTime();
  * unsigned long long number ever can be produced.
  * runtime O(sizeof(unsigned long long))
  */
-unsigned long long highestULongLongNumb();
+//unsigned long long highestULongLongNumb();
 
 /*
  * populate two_bit_repr hash mapping

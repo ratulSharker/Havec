@@ -105,22 +105,6 @@ void currentDateTime() {
 }
 
 /*
- * this function return the highest
- * unsigned long long number ever can be produced.
- * runtime O(sizeof(unsigned long long))
- */
-unsigned long long highestULongLongNumb(){
-
-	unsigned long long h_val = 0;
-	int size = sizeof(unsigned long long) * 8; //into bit
-	for(int i=0; i<size ; i++){
-		h_val = (h_val << 1) | 1;
-	}
-
-	return h_val;
-}
-
-/*
  * populate two_bit_repr hash mapping
  */
 void populateTwoBitReprHashMap(){
@@ -135,6 +119,11 @@ void populateTwoBitReprHashMap(){
 	two_bit_repr[7] 	= 0b0100 1110;//7->hash 
 	two_bit_repr[8] 	= 0b0110 0011;//8->hash */
 	
+	//
+	//	only 3 bit is reserved for hash function
+	//	so 8 different hash function can be mapped
+	//	into it. Thats why using only 8 of them
+	//
 	two_bit_repr[0] 	= 0X1B;//0->hash 		00 	01 	10 	11
 	two_bit_repr[1] 	= 0XE4;//1->hash 
 	two_bit_repr[2] 	= 0X4E;//2->hash 

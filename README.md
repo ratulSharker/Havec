@@ -12,10 +12,21 @@ To use this software you need <b>g++</b> (GCC 4.7 or later to support -std=c++11
 Havec build now depends on `make`. If `make` is not installed install it using following
 
 ```shell
-  sudo apt-get install make
+  
+  sudo apt-get install build-essential
+  
 ```
 
-To build the **Havec** run `make` or `make havec`, it will generate the executable <b>Havec.out</b> for you in the same directory.
+To build the **Havec**
+
+```shell
+
+  # you can clean the project by `make clean`
+  make havec # only `make` will also suffice
+
+```
+
+It will generate the executable <b>Havec.out</b> for you in the same directory.
 
 ## Sample Test run
 
@@ -41,12 +52,46 @@ Some of the example are given following:
 ./Havec.out Human1_95G_CASAVA1.8a2_NCBI37_18Jan11_chr21.sorted.fasta 32 8 NC NP 138568143 1.4
 ```
 
+## Unit testing
 
-## Supported parameter
+Unit testing is been integrated in order to maintain the integrity of this software. <a href='http://cunit.sourceforge.net/'>CUnit</a> is been used for unit testing. For Ubuntu `makefile` is already configured to install this unit testing library. 
+
+To install the unit testing depedencies
+
+```shell
+
+make install_deps
+
+```
+
+To remove the unit testing dependencies
+
+```shell
+
+make remove_deps
+
+```
+
+To run the unit tests
+
+```shell
+
+make test
+./test_common.out
+
+```
+
+## Havec Supported parameter
 This software accept a number of parameter to run on different data-set. They all are listed following. Those who are impatient, can have a look at the following,
 
 ```
-  ./Havec.out [file-path] [k-size] [Number of hash function] [track-cutoff] [print-verbose] [Hashtable min size] [Multiplying-factor]
+  ./Havec.out [file-path] 
+              [k-size] 
+              [Number of hash function] 
+              [track-cutoff] 
+              [print-verbose] 
+              [Hashtable min size] 
+              [Multiplying-factor]
 ```
 
 All the parameter ar listed following

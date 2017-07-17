@@ -1,5 +1,6 @@
 /* necessary includes */
 #include <iostream>
+#include <cstring>
 #include <CUnit/Basic.h>
 #include "../src/common.h"
 
@@ -49,6 +50,8 @@ void test_process_mem_usage()
 {
 	// test the process mem
 	// memory usage
+	// this function actually is a system api call
+	// thats why unit testing this function is unnecessary
 }
 
 void test_is_prime()
@@ -72,6 +75,7 @@ void test_get_a_prime_above_x()
 void test_currentDateTime()
 {
 	// test currentDateTime
+	// two system api call, which is unnecessary to unit test
 }
 
 
@@ -93,16 +97,31 @@ void test_partialHasher()
 	CU_ASSERT(fullHasher("AGTCCCCCACACTTG", 0) 		== partialHasher(fullHasher("AGTCCCCCACACTT", 0), 'G', 32, 0));
 }
 
-void test_string_revhash()
-{
-	
-}
+void string_revhash()
+{	
+	CU_ASSERT(strcmp("CTAGGGGGTACCCGGAT", _revhash(fullHasher("AGTCCCCCGTAAACCTG", 3),
+													3,
+													17).c_str()) == 0);
 
 
-void createDirectory()
-{
-	
+	CU_ASSERT(strcmp("CTAGGGAT", _revhash(fullHasher("AGTCCCTG", 3),
+										  3,
+										  8).c_str() ) == 0);
+
+	CU_ASSERT(strcmp("CTTACCCGGAT", _revhash(fullHasher("AGGTAAACCTG", 3),
+													3,
+													11).c_str()) == 0);
+
+
+	CU_ASSERT(strcmp("GGGGGTACCCGGAT", _revhash(fullHasher("CCCCCGTAAACCTG", 3),
+													3,
+													14).c_str() ) == 0);
+
+	CU_ASSERT(strcmp("CTAGGGGGTACCCGGATAATG", _revhash(fullHasher("AGTCCCCCGTAAACCTGTTGC", 3),
+													3,
+													21).c_str()) == 0);
 }
+
 
 int init_suite(void)
 {
@@ -124,30 +143,6 @@ int clean_suite(void)
 */
 int main(int argc, char **argv)
 {
-
-	// running partial hasher on some test cases
-	// partialHasher(unsigned long long hashVal,
-	// 							 char lastNeucleotide,
-	// 							 unsigned short int kSize,
-	// 							 unsigned int whichHashFunc)
-
-	// populateTwoBitReprHashMap();
-
-
-	// cout<<"AGTCCCCCACACTTGCG : " <<partialHasher(2684145006, 'C', 32, 0)<<endl;
-	// cout<<"AGTCCCCCACACTTGCGC : " << partialHasher(10736580027, 'G', 32, 0)<<endl;
-	// cout<<"AGTCCCCCACACTTGCGCG : " << partialHasher(42946320110, 'T', 32, 0)<<endl;
-	// cout<<"AGTCCCCCACACTTGCGCGT : " << partialHasher(171785280441, 'A', 32, 0)<<endl;
-
-	// cout<<"AGTCCCCCACACTTGCGC : " <<	fullHasher("AGTCCCCCACACTTGCGC", 0)<<endl;
-	// cout<<"AGTCCCCCACACTTGCGCG : " << 	fullHasher("AGTCCCCCACACTTGCGCG", 0)<<endl;
-	// cout<<"AGTCCCCCACACTTGCGCGT : " << 	fullHasher("AGTCCCCCACACTTGCGCGT", 0)<<endl;
-	// cout<<"AGTCCCCCACACTTGCGCGTA : " << fullHasher("AGTCCCCCACACTTGCGCGTA", 0)<<endl;
-
-	// return 0;
-
-
-
 	CU_pSuite pSuite = NULL;
 
 	// initialize the CUnit test registry
@@ -173,6 +168,7 @@ int main(int argc, char **argv)
 	   	|| (NULL == CU_add_test(pSuite, "test of two_bit_repr()", test_two_bit_repr))
 	  	|| (NULL == CU_add_test(pSuite, "test of fullHasher()", test_fullHasher))
 	  	|| (NULL == CU_add_test(pSuite, "test of partialHasher()", test_partialHasher))
+	  	|| (NULL == CU_add_test(pSuite, "test of _revhash()", string_revhash))
 	   	)
    {
       CU_cleanup_registry();
